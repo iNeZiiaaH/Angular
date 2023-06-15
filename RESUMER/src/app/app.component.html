@@ -1,0 +1,16 @@
+<h1>{{ 'Hello, World!' | title }}</h1>
+
+<div>
+  <h2>Texte court :</h2>
+  <p>{{ 'Ceci est un texte court.' | summary }}</p>
+</div>
+
+<div>
+  <h2>Texte long :</h2>
+  <p>{{ 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod eum totam perspiciatis placeat sapiente, repudiandae et reprehenderit tempora voluptas quidem ratione eius distinctio esse itaque cumque consequuntur animi quaerat mollitia.' | summary:20 }} </p>
+</div>
+
+<div>
+  <h2>Texte avec un index de départ :</h2>
+  <p>{{ 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ex sit a esse, incidunt et aspernatur numquam id placeat nulla harum mollitia earum hic facilis laborum animi, repudiandae non cumque!' | summary:30:10 }}</p>
+</div>

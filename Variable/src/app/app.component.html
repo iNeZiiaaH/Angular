@@ -1,0 +1,13 @@
+<h1>{{ fullname }}</h1>
+
+<div>
+  <label for="firstName">firstname</label>
+  <input #firstNameInput id="firstName" type="text">
+</div>
+
+<div>
+  <label for="lastName">lastname</label>
+  <input #lastNameInput id="lastName" type="text">
+</div>
+
+<button (click)="updateFullname(firstNameInput, lastNameInput)">Update Fullname</button>

@@ -1,0 +1,22 @@
+<h1 class="titre">{{ title }}</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Press Rating</th>
+    <th>User Rating</th>
+    <th>Release Date</th>
+    <th>Shop Reference</th>
+    <th>Availability</th>
+  </tr>
+  <tr *ngFor="let game of games">
+    <td>{{ game.name | uppercase }}</td>
+    <td>{{ game.price | currency:'EUR' }}</td>
+    <td>{{ game.pressRatingPercentage | percent }}</td>
+    <td>{{ game.userRating | number:'1.2-2' }}</td>
+    <td>{{ game.releaseDate | date:'dd/mm/yyyy' }}</td>
+    <td>{{ game.shopReference | lowercase }}</td>   
+    <td [class.available]="game.isAvailable === 'oui'" [class.unavailable]="game.isAvailable === 'non'">{{ game.isAvailable }}</td>
+  </tr>
+</table>
+

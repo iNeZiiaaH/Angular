@@ -1,0 +1,6 @@
+<button (click)="showAlert()">Premier bouton</button>
+<button (dblclick)="DoubleAlert()">Deuxième bouton</button>
+<button (click)="ButtonClick($event)" value="from my button">Bouton qui affiche en console</button>
+<h1 (mouseover)="MouseOver($event)">titre TABARNAK</h1>
+<p>{{ message }}</p>
+<input type="text" (input)="MessageEvent($event)" (keyup.enter)="EnterKey()"> 

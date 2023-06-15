@@ -1,0 +1,10 @@
+.available {
+    color: green;
+}
+
+.unavailable {
+    color: red;
+}
+.titre {
+    text-align: center;
+}
