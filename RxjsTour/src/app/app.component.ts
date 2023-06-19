@@ -1,5 +1,5 @@
 import { Component, SkipSelf } from '@angular/core';
-import { Observable, Subscription, catchError, concatMap, delay, filter, from, map, of, take, tap } from 'rxjs';
+import { Observable, Subject, Subscription, catchError, concatMap, delay, filter, from, map, of, take, tap } from 'rxjs';
 
 
 @Component({
@@ -141,7 +141,30 @@ export class AppComponent {
     });
   }
   ninthTour() {
+    const observable = of(1, 2, 3, 4, 5, 6, 7, 8).pipe(
+      concatMap(value => of(value).pipe(delay(500))),
+    );
+
+    observable.subscribe((value) => console.log(`observateur A: ${value}`));
+    observable.subscribe((value) => console.log(`observateur B: ${value}`));
+
+    setTimeout(() =>{
+      observable.subscribe((value) => console.log(`observateur C: ${value}`));
+    }, 2000)
   }
   tenthTour() {
+    const subject = new Subject<number>();
+
+    const observable = of(1, 2, 3, 4, 5, 6, 7, 8).pipe(
+      concatMap(value => of(value).pipe(delay(500))),
+    );
+    observable.subscribe(subject);
+
+    subject.subscribe((value) => console.log(`observateur A: ${value}`));
+    subject.subscribe((value) => console.log(`observateur B: ${value}`)); 
+
+    setTimeout(() =>{
+      subject.subscribe((value) => console.log(`observateur C: ${value}`));
+    }, 2000)
   }
 }
